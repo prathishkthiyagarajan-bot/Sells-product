@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UsedMart - Buy & Sell Used Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="logo">
+            Used<span>Mart</span>
+        </div>
+        <div class="location">
+            📍 Sathyamangalam
+        </div>
+        <div class="search-container">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search cars, phones, furniture..."
+            >
+            <button id="searchButton">
+                🔍
+            </button>
+        </div>
+        <button class="login-button">
+            Login
+        </button>
+
+        <button class="sell-button" id="openSellForm">
+            + SELL
+        </button>
+
+    </header>
+
+
+    <!-- ================= CATEGORY NAVIGATION ================= -->
+
+    <nav class="category-nav">
+
+        <a href="#" data-category="All">All</a>
+
+        <a href="#" data-category="Mobiles">📱 Mobiles</a>
+
+        <a href="#" data-category="Cars">🚗 Cars</a>
+
+        <a href="#" data-category="Bikes">🏍️ Bikes</a>
+
+        <a href="#" data-category="Electronics">💻 Electronics</a>
+
+        <a href="#" data-category="Furniture">🛋️ Furniture</a>
+
+        <a href="#" data-category="Books">📚 Books</a>
+
+        <a href="#" data-category="Fashion">👕 Fashion</a>
+
+        <a href="#" data-category="Other">📦 Other</a>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div>
+
+                <h1>
+                    Buy & Sell Used Products
+                </h1>
+
+                <p>
+                    Find great deals near you or sell things
+                    you no longer need.
+                </p>
+
+                <button id="heroSellButton">
+                    Sell Something
+                </button>
+
+            </div>
+
+            <div class="hero-image">
+                🛍️
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories">
+
+            <div class="section-header">
+
+                <h2>Explore Categories</h2>
+
+            </div>
+
+            <div class="category-grid">
+
+                <div class="category-card" data-category="Mobiles">
+                    <div>📱</div>
+                    <p>Mobiles</p>
+                </div>
+
+                <div class="category-card" data-category="Cars">
+                    <div>🚗</div>
+                    <p>Cars</p>
+                </div>
+
+                <div class="category-card" data-category="Bikes">
+                    <div>🏍️</div>
+                    <p>Bikes</p>
+                </div>
+
+                <div class="category-card" data-category="Electronics">
+                    <div>💻</div>
+                    <p>Electronics</p>
+                </div>
+
+                <div class="category-card" data-category="Furniture">
+                    <div>🛋️</div>
+                    <p>Furniture</p>
+                </div>
+
+                <div class="category-card" data-category="Books">
+                    <div>📚</div>
+                    <p>Books</p>
+                </div>
+
+                <div class="category-card" data-category="Fashion">
+                    <div>👕</div>
+                    <p>Fashion</p>
+                </div>
+
+                <div class="category-card" data-category="Other">
+                    <div>📦</div>
+                    <p>Other</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section class="products">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Fresh Recommendations</h2>
+                    <p id="resultCount"></p>
+                </div>
+
+                <select id="sortProducts">
+
+                    <option value="latest">
+                        Latest
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            >
+
+                <!-- Products inserted by JavaScript -->
+
+            </div>
+
+
+            <div
+                class="no-results"
+                id="noResults"
+            >
+                <div>🔎</div>
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= SELL MODAL ================= -->
+
+    <div
+        class="modal"
+        id="sellModal"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    Sell Your Product
+                </h2>
+
+                <button
+                    id="closeModal"
+                    class="close-button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="sellForm">
+
+                <label>
+                    Product Title
+                </label>
+
+                <input
+                    type="text"
+                    id="productTitle"
+                    placeholder="Example: iPhone 13"
+                    required
+                >
+
+
+                <label>
+                    Category
+                </label>
+
+                <select
+                    id="productCategory"
+                    required
+                >
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Mobiles">
+                        Mobiles
+                    </option>
+
+                    <option value="Cars">
+                        Cars
+                    </option>
+
+                    <option value="Bikes">
+                        Bikes
+                    </option>
+
+                    <option value="Electronics">
+                        Electronics
+                    </option>
+
+                    <option value="Furniture">
+                        Furniture
+                    </option>
+
+                    <option value="Books">
+                        Books
+                    </option>
+
+                    <option value="Fashion">
+                        Fashion
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Price (₹)
+                </label>
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="Enter price"
+                    min="1"
+                    required
+                >
+
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="productLocation"
+                    placeholder="Example: Sathyamangalam"
+                    required
+                >
+
+
+                <label>
+                    Condition
+                </label>
+
+                <select
+                    id="productCondition"
+                    required
+                >
+
+                    <option value="">
+                        Select condition
+                    </option>
+
+                    <option value="Like New">
+                        Like New
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Fair">
+                        Fair
+                    </option>
+
+                    <option value="Used">
+                        Used
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="productDescription"
+                    placeholder="Describe your product..."
+                    required
+                ></textarea>
+
+
+                <label>
+                    Product Image URL
+                </label>
+
+                <input
+                    type="url"
+                    id="productImage"
+                    placeholder="https://example.com/image.jpg"
+                >
+
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Post Advertisement
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            UsedMart
+        </div>
+
+        <p>
+            Buy smart. Sell easy. ♻️
+        </p>
+
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Safety</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 UsedMart. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
